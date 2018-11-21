@@ -9,7 +9,7 @@ import unittest
 from contextlib import contextmanager
 from io import StringIO
 
-from curved_fiber import main
+from curved_fiber import main, data_analysis
 
 
 class TestQuote(unittest.TestCase):
