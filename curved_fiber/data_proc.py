@@ -109,11 +109,12 @@ def plot_stats(f_name,data_xLMid):
     """
     num_midpoints, num_fibers = data_xLMid.shape
     plt.figure()
+    #The assumed design space is a 20inx20in plate with co-ords at center. Hece the limits
     plt.xlim(-10.0,10.0)
     plt.ylim(-10.0,10.0)
     for i in range(num_fibers-1):
         # red dashes, blue squares and green triangles
-        plt.plot(data_xLMid[:,i+1], data_xLMid[:,0])
+        plt.plot(data_xLMid[:,i+1], data_xLMid[:,0], 'ro')
 
     plt.title('Sample path of matrix around fiber paths')
     plt.xlabel('X co-ordinate values')
