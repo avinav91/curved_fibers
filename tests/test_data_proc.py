@@ -73,7 +73,7 @@ class TestMain(unittest.TestCase):
                 main(test_input)
             # checks that the expected message is sent to standard out
             with capture_stdout(main, test_input) as output:
-                self.assertTrue("Ply_1_Left_MidMtrx.csv" in output)
+                self.assertTrue("data_mid_angle.csv" in output)
 
             self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.csv"))
             self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.png"))
