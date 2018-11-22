@@ -28,8 +28,8 @@ DATA_DIR = os.path.join(PROJ_DIR, 'data')
 SAMPLE_DATA_FILE_LOC = os.path.join(DATA_DIR, 'Ply_1_Left.csv')
 
 # Assumes running tests from the main directory
-DEF_CSV_OUT = os.path.join(MAIN_DIR, 'sample_data_stats.csv')
-DEF_PNG_OUT = os.path.join(MAIN_DIR, 'sample_data_stats.png')
+DEF_CSV_OUT = os.path.join(MAIN_DIR, 'Ply_1_Left_MidMtrx.csv')
+DEF_PNG_OUT = os.path.join(MAIN_DIR, 'Ply_1_Left_MidMtrx.png')
 
 
 def silent_remove(filename, disable=False):
@@ -57,10 +57,10 @@ class TestMain(unittest.TestCase):
                 main(test_input)
             # checks that the expected message is sent to standard out
             with capture_stdout(main, test_input) as output:
-                self.assertTrue("sample_data_stats.csv" in output)
+                self.assertTrue("Ply_1_Left_MidMtrx.csv" in output)
 
-            self.assertTrue(os.path.isfile("sample_data_stats.csv"))
-            self.assertTrue(os.path.isfile("sample_data_stats.png"))
+            self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.csv"))
+            self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.png"))
         finally:
             silent_remove(DEF_CSV_OUT, disable=DISABLE_REMOVE)      #Removes the Sample outputs
             silent_remove(DEF_PNG_OUT, disable=DISABLE_REMOVE)
@@ -73,10 +73,10 @@ class TestMain(unittest.TestCase):
                 main(test_input)
             # checks that the expected message is sent to standard out
             with capture_stdout(main, test_input) as output:
-                self.assertTrue("data_mid_angle.csv" in output)
+                self.assertTrue("Ply_1_Left_MidMtrx.csv" in output)
 
-            self.assertTrue(os.path.isfile("sample_data_stats.csv"))
-            self.assertTrue(os.path.isfile("sample_data_stats.png"))
+            self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.csv"))
+            self.assertTrue(os.path.isfile("Ply_1_Left_MidMtrx.png"))
             self.assertTrue(os.path.isfile("data_mid_angle.csv"))
         finally:
             silent_remove(DEF_CSV_OUT, disable=DISABLE_REMOVE)
@@ -108,7 +108,7 @@ class TestDataAnalysis(unittest.TestCase):
         expected_results = np.loadtxt(fname=os.path.join(TEST_DATA_DIR, "sample_data2_results.csv"), delimiter=',')
         self.assertTrue(np.allclose(expected_results, analysis_results))
 
-
+'''
 # Utility functions
 
 # From http://schinckel.net/2013/04/15/capture-and-test-sys.stdout-sys.stderr-in-unittest.testcase/
@@ -132,4 +132,3 @@ def capture_stderr(command, *args, **kwargs):
     sys.stderr.seek(0)
     yield sys.stderr.read()
     sys.stderr = err
-'''
