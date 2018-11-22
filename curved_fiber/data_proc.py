@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# noinspection PyInterpreter,PyInterpreter
 """
 data_proc.py
 Obtaining coordinates for fiber paths and calculating fiber boundaries and plotting
@@ -12,7 +13,6 @@ Obtaining coordinates for fiber paths and calculating fiber boundaries and plott
 
 
 from __future__ import print_function
-#from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 from argparse import ArgumentParser
 import numpy as np
@@ -78,7 +78,7 @@ def parse_cmdline(argv):
 
     # initialize the parser object:
     parser = ArgumentParser(description='Reads in a csv (no header) of x,y coordinates and gets the mean of x for  '
-                                        'middle matrix region. There must be the same number of values in each row.')
+                                        'middle matrix region.')
     parser.add_argument("-c", "--csv_data_file", help="The location (directory and file name) of the csv file with "
                                                       "data to analyze",
                         default=DEFAULT_DATA_FILE_NAME)
